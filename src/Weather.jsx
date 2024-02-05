@@ -73,9 +73,9 @@ const WeatherApp = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 gap-3">
+    <div style={{backgroundColor: '#e9e9e9'}} className="min-h-screen flex items-center justify-center">
       <div className="flex gap-5">
-        <div className="bg-white p-8 rounded shadow-md w-96">
+        <div style={{backgroundColor:"#fafafa"}} className="text-blue-900 p-8 rounded shadow-md w-96">
           <div className="flex flex-col gap-4">
             <div className="flex flex-row gap-3">
               <input
@@ -96,7 +96,7 @@ const WeatherApp = () => {
 
             {weatherData && (
               <div className="text-center mt-8">
-                <h2 className="text-3xl font-semibold mb-6">
+                <h2 className="text-4xl font-semibold mb-6">
                   {weatherData.name}, {weatherData.sys.country}
                 </h2>
                 <div className="flex items-center justify-center">

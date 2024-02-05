@@ -10,7 +10,7 @@ const Forecast = ({ forecastData }) => {
   const groupedForecast = resizeArray(forecastData, 3);
 
   return (
-    <div className="bg-white p-8 rounded shadow-md">
+    <div style={{backgroundColor:"#fafafa"}} className="text-blue-900 p-8 rounded shadow-md">
       <h2 className="text-2xl font-semibold mb-4 text-center">
         5-Day Forecast
       </h2>
@@ -35,7 +35,7 @@ const Forecast = ({ forecastData }) => {
                   <span className="mx-2">|</span>
                   <span className="text-red-500">Low: {day.minTemp}°C</span>
                 </div>
-                <p className="text-gray-500 mt-2">Wind: {day.windSpeed} m/s</p>
+                <p className="mt-2">Wind: {day.windSpeed} m/s</p>
               </div>
             ))}
           </div>
