@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Forecast from "./Forecast";
+import Navbar from "./Navbar";
 
 const WeatherApp = () => {
   const [city, setCity] = useState("Mumbai");
@@ -16,14 +17,11 @@ const WeatherApp = () => {
       axios
         .get(uri)
         .then((response) => {
-          if (response.status === 200) {
-            setWeatherData(response.data);
-          } else {
-            setWeatherData(null);
-          }
+          setWeatherData(response.data);
         })
         .catch((error) => {
           console.error("Error fetching weather data:", error);
+          alert("Enter a valid city")
         });
     }
   };
@@ -71,10 +69,12 @@ const WeatherApp = () => {
     CurrentWeather();
     forecast5day();
   };
-
+  
   return (
+    <>
+    <Navbar city={weatherData?.name} country={weatherData?.sys.country} temperature={weatherData?.main.temp} />
     <div style={{backgroundColor: '#e9e9e9'}} className="min-h-screen flex items-center justify-center">
-      <div className="flex gap-5">
+      <div className="flex gap-6 m-6">
         <div style={{backgroundColor:"#fafafa"}} className="text-blue-900 p-8 rounded shadow-md w-96">
           <div className="flex flex-col gap-4">
             <div className="flex flex-row gap-3">
@@ -204,6 +204,7 @@ const WeatherApp = () => {
         <Forecast forecastData={forecastData} />
       </div>
     </div>
+    </>
   );
 };
 
